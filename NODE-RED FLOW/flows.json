@@ -1,0 +1,388 @@
+[
+    {
+        "id": "d13975c820d88980",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d79663c37119043b",
+        "type": "function",
+        "z": "d13975c820d88980",
+        "name": "function 1",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 60,
+        "wires": [
+            [
+                "b3e3c36acd53cee0"
+            ]
+        ]
+    },
+    {
+        "id": "b3e3c36acd53cee0",
+        "type": "mqtt out",
+        "z": "d13975c820d88980",
+        "name": "",
+        "topic": "/aquvax/commands",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4fa7b0f5532b79ba",
+        "x": 430,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "7be7df0f674d23ea",
+        "type": "ui_gauge",
+        "z": "d13975c820d88980",
+        "name": "",
+        "group": "137108b02c9332a2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "PH",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "14",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 350,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "80255e187763e57a",
+        "type": "ui_gauge",
+        "z": "d13975c820d88980",
+        "name": "",
+        "group": "137108b02c9332a2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Water Level",
+        "label": "cm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 370,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c4652046e6072d23",
+        "type": "mqtt in",
+        "z": "d13975c820d88980",
+        "name": "",
+        "topic": "/aquvax/sensors/waterLevel",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "4fa7b0f5532b79ba",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "80255e187763e57a"
+            ]
+        ]
+    },
+    {
+        "id": "bb6d36d7b9dd6c48",
+        "type": "mqtt in",
+        "z": "d13975c820d88980",
+        "name": "",
+        "topic": "/aquvax/sensors/pH",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "4fa7b0f5532b79ba",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 200,
+        "wires": [
+            [
+                "7be7df0f674d23ea"
+            ]
+        ]
+    },
+    {
+        "id": "6d07cdb528830a1c",
+        "type": "ui_button",
+        "z": "d13975c820d88980",
+        "name": "",
+        "group": "137108b02c9332a2",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Feed",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "FEED",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 90,
+        "y": 420,
+        "wires": [
+            [
+                "8dbd06866bb49429"
+            ]
+        ]
+    },
+    {
+        "id": "8dbd06866bb49429",
+        "type": "function",
+        "z": "d13975c820d88980",
+        "name": "function 2",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 420,
+        "wires": [
+            [
+                "0f943d25ec417d88"
+            ]
+        ]
+    },
+    {
+        "id": "0f943d25ec417d88",
+        "type": "mqtt out",
+        "z": "d13975c820d88980",
+        "name": "",
+        "topic": "/aquvax/commands",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4fa7b0f5532b79ba",
+        "x": 430,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "24d1204fec22c94a",
+        "type": "mqtt in",
+        "z": "d13975c820d88980",
+        "name": "",
+        "topic": "/aquvax/sensors/temperature",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "4fa7b0f5532b79ba",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 280,
+        "wires": [
+            [
+                "f6873ba193ce6fc2"
+            ]
+        ]
+    },
+    {
+        "id": "f6873ba193ce6fc2",
+        "type": "ui_gauge",
+        "z": "d13975c820d88980",
+        "name": "",
+        "group": "137108b02c9332a2",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temprature",
+        "label": "c",
+        "format": "{{value}}",
+        "min": "-50",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 390,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "3c9c80d4723f8e44",
+        "type": "ui_button",
+        "z": "d13975c820d88980",
+        "name": "",
+        "group": "137108b02c9332a2",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "LED",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "LED",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 90,
+        "y": 60,
+        "wires": [
+            [
+                "d79663c37119043b"
+            ]
+        ]
+    },
+    {
+        "id": "03b0176e987192bd",
+        "type": "ui_gauge",
+        "z": "d13975c820d88980",
+        "name": "",
+        "group": "137108b02c9332a2",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature2",
+        "label": "cm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 380,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "dc7ee650231f71cc",
+        "type": "mqtt in",
+        "z": "d13975c820d88980",
+        "name": "",
+        "topic": "/aquvax/sensors/temperature",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "4fa7b0f5532b79ba",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 360,
+        "wires": [
+            [
+                "03b0176e987192bd"
+            ]
+        ]
+    },
+    {
+        "id": "4fa7b0f5532b79ba",
+        "type": "mqtt-broker",
+        "name": "Test_MQQT_Server",
+        "broker": "test.mosquitto.org",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "137108b02c9332a2",
+        "type": "ui_group",
+        "name": "AQUVAX",
+        "tab": "38a80e1fae9d7c4a",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "38a80e1fae9d7c4a",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

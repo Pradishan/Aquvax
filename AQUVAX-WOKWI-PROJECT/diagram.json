@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "author": "CST20061 K. Pradishan",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -67.2, "left": -187.16, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -113.7,
+      "left": -455.3,
+      "attrs": { "distance": "21" }
+    },
+    { "type": "board-ds18b20", "id": "temp1", "top": -97.13, "left": -255.12, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": -203.6, "left": 105.6, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo2", "top": -299.6, "left": 96, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 144.2, "left": 211.2, "attrs": {} },
+    { "type": "chip-ph-sensor", "id": "chip1", "top": -142.98, "left": -187.2, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay2", "top": 230.6, "left": 211.2, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -32.4,
+      "left": -44.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot1",
+      "top": -283,
+      "left": -183.4,
+      "attrs": { "travelLength": "30" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:33", "temp1:DQ", "green", [ "h0" ] ],
+    [ "esp:32", "ultrasonic1:TRIG", "green", [ "h0" ] ],
+    [ "esp:34", "ultrasonic1:ECHO", "green", [ "h0" ] ],
+    [ "esp:35", "chip1:A", "green", [ "h-19.05", "v-144" ] ],
+    [ "esp:16", "relay1:IN", "green", [ "h288", "v115.4" ] ],
+    [ "esp:17", "relay2:IN", "green", [ "h278.4", "v211.4" ] ],
+    [ "esp:5V", "temp1:VCC", "red", [ "h0" ] ],
+    [ "esp:5V", "ultrasonic1:VCC", "red", [ "h0" ] ],
+    [ "esp:GND.1", "ultrasonic1:GND", "black", [ "h0" ] ],
+    [ "esp:GND.1", "temp1:GND", "black", [ "h0" ] ],
+    [ "esp:5V", "relay1:VCC", "red", [ "h-19.05", "v28.8" ] ],
+    [ "esp:5V", "relay2:VCC", "red", [ "h-19.05", "v115.2" ] ],
+    [ "esp:GND.2", "servo1:GND", "black", [ "h144", "v-115.2" ] ],
+    [ "esp:GND.2", "servo2:GND", "black", [ "h144", "v-211.2" ] ],
+    [ "esp:5V", "servo1:V+", "red", [ "h-19.05", "v28.8", "h268.8", "v-307.3" ] ],
+    [ "esp:5V", "servo2:V+", "red", [ "h-19.05", "v28.8", "h268.8", "v-403.3" ] ],
+    [ "relay2:GND", "esp:GND.3", "black", [ "h-240", "v-240.4" ] ],
+    [ "relay1:GND", "esp:GND.3", "black", [ "h-240", "v-154" ] ],
+    [ "esp:18", "servo1:PWM", "green", [ "h172.8", "v-173" ] ],
+    [ "esp:18", "servo2:PWM", "green", [ "h172.8", "v-269" ] ],
+    [ "esp:GND.3", "led1:C", "black", [ "h0" ] ],
+    [ "esp:5", "led1:A", "green", [ "h0" ] ],
+    [ "esp:GND.2", "chip1:-", "black", [ "h28.8", "v-86.4" ] ],
+    [ "esp:3V3", "chip1:+", "green", [ "h-9.45", "v-86.4" ] ],
+    [ "chip1:GND", "esp:GND.2", "black", [ "h-9.6", "v38.4", "h105.6" ] ],
+    [ "chip1:DATA", "esp:35", "green", [ "v-28.8", "h-132.59", "v163.2" ] ],
+    [ "chip1:VCC", "esp:3V3", "red", [ "h-19.2", "v96" ] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "h-19.2", "v201.6" ] ],
+    [ "pot1:SIG", "esp:VP", "green", [ "h-38.4", "v200.8" ] ],
+    [ "esp:GND.2", "pot1:GND", "black", [ "h124.8", "v-201.6" ] ]
+  ],
+  "dependencies": {}
+}
