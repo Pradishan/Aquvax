@@ -51,15 +51,6 @@ The Automated Aquarium Management System (AAMS) is an IoT-based smart system des
    - Set up the web dashboard.
    - Test system responses to environmental changes.
 
-## Project Structure
-```
-├── firmware/                  # Embedded software for ESP32
-├── web-dashboard/             # Web-based monitoring system
-├── mobile-app/ (future)       # Mobile application (planned)
-├── docs/                      # Documentation
-├── README.md                  # Project ReadMe file
-```
-
 ## Future Enhancements
 - AI-driven predictive maintenance for aquarium health.
 - Mobile application for enhanced accessibility.
