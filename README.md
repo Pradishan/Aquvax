@@ -1,4 +1,5 @@
-# Automated Aquarium Management System (AAMS)
+# AQUVAX
+## Automated Aquarium Management System (AAMS)
 
 ## Overview
 The Automated Aquarium Management System (AAMS) is an IoT-based smart system designed to automate and monitor essential aquarium maintenance tasks, ensuring optimal conditions for aquatic life with minimal human intervention.
